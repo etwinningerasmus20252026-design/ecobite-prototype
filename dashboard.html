@@ -5,10 +5,18 @@
     <title>EcoBite | Panel</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #fcfbf7; padding: 40px; color: #5c4b37; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 20px; border: 1px solid #e0dcd5; }
-        h1 { color: #8A9A5B; text-align: center; } /* Adaçayı Yeşili */
-        .card { background: #fdfaf6; padding: 25px; border-radius: 15px; margin: 30px 0; border-left: 8px solid #8A9A5B; border-bottom: 2px solid #d2b48c; }
-        .btn-exit { display: block; padding: 15px; background: #d2b48c; color: white; text-align: center; text-decoration: none; border-radius: 10px; font-weight: bold; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 20px; border: 1px solid #d2b48c; }
+        h1 { color: #4A6741; text-align: center; } 
+        .card { 
+            background: #fdfaf6; padding: 25px; border-radius: 15px; margin: 30px 0; 
+            border-left: 8px solid #4A6741; border-bottom: 2px solid #d2b48c; 
+        }
+        .btn-exit { 
+            display: block; padding: 15px; background: #d2b48c; color: white; 
+            text-align: center; text-decoration: none; border-radius: 10px; font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-exit:hover { background: #b89c75; }
     </style>
 </head>
 <body>
@@ -25,6 +33,8 @@
             content.innerHTML = "<h3>Öğrenci Paneli</h3><p>Merhaba! Sürdürülebilir tercihlerinizle bugün dünyaya bir iyilik yaptınız.</p>";
         } else if (role === "staff") {
             content.innerHTML = "<h3>Personel Paneli</h3><p>Veri yönetimi ve stok analizlerine hoş geldiniz, sayın yetkili.</p>";
+        } else {
+            content.innerHTML = "<p>Lütfen önce giriş yapın.</p>";
         }
     </script>
 </body>
