@@ -6,23 +6,25 @@
     <style>
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            background-color: #fcfbf7; /* Hafif bir beyaz/krem tonu */
+            background-color: #fcfbf7; 
             display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; 
         }
         .login-card { 
             background: #ffffff; padding: 40px; border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05); width: 350px;
-            border: 1px solid #e0dcd5; /* Açık kahverengi dokunuşu */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 350px;
+            border: 1px solid #d2b48c; 
         }
-        h2 { color: #8A9A5B; text-align: center; } /* Adaçayı Yeşili */
+        h2 { color: #4A6741; text-align: center; margin-bottom: 25px; } 
         input { 
-            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d2b48c; /* Açık Kahverengi */
-            border-radius: 8px; box-sizing: border-box;
+            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d2b48c; 
+            border-radius: 8px; box-sizing: border-box; outline-color: #4A6741;
         }
         button { 
-            width: 100%; padding: 12px; background: #8A9A5B; color: white; 
+            width: 100%; padding: 12px; background: #4A6741; color: white; 
             border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;
+            transition: background 0.3s;
         }
+        button:hover { background: #3a5434; }
     </style>
 </head>
 <body>
