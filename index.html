@@ -4,54 +4,37 @@
     <meta charset="UTF-8">
     <title>EcoBite | Panel</title>
     <style>
-        /* Arka Plan Deseni */
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            background-color: #fffdf5; 
-            margin: 0; 
-            color: #2d3436; 
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100"><path d="M25,50 C15,40 10,25 25,10 C40,25 35,40 25,50 Z M75,50 C65,40 60,25 75,10 C90,25 85,40 75,50 Z M50,85 C40,75 35,60 50,45 C65,60 60,75 50,85 Z" fill="%235a8e45" fill-opacity="0.06"/></svg>');
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; color: #2d3436; 
+               background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100"><path d="M25,50 C15,40 10,25 25,10 C40,25 35,40 25,50 Z M75,50 C65,40 60,25 75,10 C90,25 85,40 75,50 Z M50,85 C40,75 35,60 50,45 C65,60 60,75 50,85 Z" fill="%235a8e45" fill-opacity="0.06"/></svg>'); }
         
         .hero { background: linear-gradient(150deg, #3d5e2f 0%, #5a8e45 100%); color: white; padding: 50px 20px; text-align: center; }
-        
-        /* Değişen Bilgi Yazısı */
-        .dynamic-info { 
-            font-style: italic; font-size: 1.1em; opacity: 0.9; margin-top: 15px; 
-            height: 25px; transition: opacity 0.5s ease-in-out; 
-        }
+        .dynamic-info { font-style: italic; font-size: 1.1em; opacity: 0.9; margin-top: 15px; height: 25px; transition: opacity 0.5s ease-in-out; }
 
         .main-wrapper { max-width: 900px; margin: 20px auto; padding: 20px; }
         .top-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
         
-        /* Giriş Paneli */
-        .login-section { 
-            background: #fff; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: 0.4s; 
-        }
-        .login-section:hover { box-shadow: 0 0 20px rgba(90, 142, 69, 0.3); }
+        .login-section { background: #fff; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .login-section input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
         .login-section button { width: 100%; padding: 12px; background: #5a8e45; color: white; border: none; border-radius: 8px; cursor: pointer; }
 
-        /* Yemek Bilgi Kartları */
         .meal-info { display: flex; flex-direction: column; gap: 20px; }
         .meal-card { background: #fff; padding: 20px; border-radius: 15px; border: 2px solid #f1c40f; text-align: center; }
         .meal-card h3 { color: #5a8e45; margin: 0; }
 
-        /* İstatistikler */
         .stats-container { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
-        .stat-card { 
-            background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; 
-            width: 180px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .stat-card { background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; width: 180px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .stat-card:hover { transform: translateY(-10px); }
+
+        /* Bize Katıl Bölümü */
+        .join-section { margin-top: 40px; text-align: center; background: #fff; padding: 30px; border-radius: 20px; border: 1px solid #ddd; }
+        .join-section a { margin: 0 20px; color: #5a8e45; font-weight: bold; text-decoration: none; font-size: 1.2em; }
+        .join-section a:hover { color: #f1c40f; }
     </style>
 </head>
 <body>
     <div class="hero">
         <h1>EcoBite</h1>
         <p>Akıllı Yemek Yönetim Sistemi</p>
-        <!-- Değişen Yazılar Buraya -->
         <div id="dynamic-text" class="dynamic-info">Sürdürülebilir bir gelecek için teknolojiyle gıda israfını durduruyoruz.</div>
     </div>
 
@@ -81,6 +64,13 @@
             <div class="stat-card"><strong>450+</strong><br>Katılımcı</div>
             <div class="stat-card"><strong>20+</strong><br>İş Birliği</div>
         </div>
+
+        <!-- Bize Katıl -->
+        <div class="join-section">
+            <p>Topluluğumuza Katıl:</p>
+            <a href="https://www.greenforyouth.org/" target="_blank">Green For Youth</a>
+            <a href="https://segm.org.tr/" target="_blank">SEGM</a>
+        </div>
     </div>
 
     <script>
@@ -91,10 +81,8 @@
             "Döngüsel ekonomi modelimizle kaynaklarımızı koruyoruz.",
             "Geleceği bugünden tasarlamak için EcoBite'a hoş geldiniz."
         ];
-        
         let index = 0;
         const textElement = document.getElementById('dynamic-text');
-
         setInterval(() => {
             textElement.style.opacity = 0;
             setTimeout(() => {
