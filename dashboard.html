@@ -4,58 +4,33 @@
     <meta charset="UTF-8">
     <title>EcoBite | Panel</title>
     <style>
-        /* Modern ve Sürdürülebilir Tasarım */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f4f7f6; 
-            margin: 0; 
-            padding: 40px; 
-            display: flex;
-            justify-content: center;
-        }
-        .container { 
-            width: 100%;
-            max-width: 600px; 
-            background: #ffffff; 
-            padding: 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-        }
-        h1 { color: #27ae60; text-align: center; } 
-        p { color: #555; text-align: center; }
-        .card { 
-            background: #e8f8f0; 
-            padding: 25px; 
-            border-radius: 15px; 
-            margin: 30px 0; 
-            border-left: 8px solid #27ae60; 
-        }
-        .btn-exit { 
-            display: block; 
-            width: 100%;
-            padding: 15px; 
-            background: #e74c3c; 
-            color: white; 
-            text-align: center;
-            text-decoration: none; 
-            border-radius: 10px; 
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn-exit:hover { background: #c0392b; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; padding: 40px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 600px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { color: #27ae60; text-align: center; }
+        .card { background: #e8f8f0; padding: 25px; border-radius: 15px; margin: 30px 0; border-left: 8px solid #27ae60; }
+        .btn-exit { display: block; width: 100%; padding: 15px; background: #e74c3c; color: white; text-align: center; text-decoration: none; border-radius: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>EcoBite Paneline Hoş Geldiniz!</h1>
-        <p>Sürdürülebilir bir gelecek için attığınız her adım değerli.</p>
-        
-        <div class="card">
-            <h3>Güncel Durum</h3>
-            <p>Bugün sisteme katkılarınızdan dolayı teşekkür ederiz. Veri akışınız aktif.</p>
+        <div id="roleContent" class="card">
+            <!-- İçerik JavaScript ile buraya gelecek -->
         </div>
-
-        <a href="index.html" class="btn-exit">Çıkış Yap</a>
+        <a href="index.html" class="btn-exit" onclick="localStorage.clear()">Çıkış Yap</a>
     </div>
+
+    <script>
+        const role = localStorage.getItem("userRole");
+        const content = document.getElementById("roleContent");
+
+        if (role === "student") {
+            content.innerHTML = "<h3>Öğrenci Paneli</h3><p>Merhaba! Bugün ne kadar gıda israfını önledin? İstatistiklerini buradan takip edebilirsin.</p>";
+        } else if (role === "staff") {
+            content.innerHTML = "<h3>Personel Paneli</h3><p>Sayın Yetkili, kurumdaki gıda stoklarını ve israf raporlarını buradan yönetebilirsiniz.</p>";
+        } else {
+            content.innerHTML = "<p>Lütfen önce giriş yapın.</p>";
+        }
+    </script>
 </body>
 </html>
