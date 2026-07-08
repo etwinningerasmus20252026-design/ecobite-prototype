@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <title>EcoBite | Panel</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fcfbf7; padding: 40px; color: #3d3122; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; padding: 40px; color: #2d3436; }
         .container { max-width: 800px; margin: auto; }
         
-        /* Kartlar İçin Stil */
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .card { background: white; padding: 25px; border-radius: 15px; border-left: 8px solid #4A6741; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: #5a8e45; text-align: center; margin-bottom: 30px; }
         
-        h1 { color: #4A6741; text-align: center; }
-        .btn-exit { display: block; width: 200px; margin: 40px auto; padding: 12px; background: #d2b48c; color: white; text-align: center; text-decoration: none; border-radius: 10px; font-weight: bold; }
+        /* Kartlar: Yeşil ve Sarı Uyumu */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { 
+            background: white; padding: 25px; border-radius: 15px; 
+            border-top: 6px solid #f1c40f; /* Sarı vurgu */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+        }
+        .card h3 { color: #5a8e45; margin-top: 0; }
+        
+        /* Çıkış Butonu */
+        .btn-exit { 
+            display: block; width: 200px; margin: 40px auto; padding: 15px; 
+            background: #5a8e45; color: white; text-align: center; 
+            text-decoration: none; border-radius: 10px; font-weight: bold; 
+            transition: background 0.3s;
+        }
+        .btn-exit:hover { background: #456b35; }
     </style>
 </head>
 <body>
@@ -20,8 +33,7 @@
         <h1>EcoBite Yönetim Paneli</h1>
         
         <div id="roleContent" class="stats-grid">
-            <!-- İçerik buraya dinamik gelecek -->
-        </div>
+            </div>
         
         <a href="index.html" class="btn-exit" onclick="localStorage.clear()">Çıkış Yap</a>
     </div>
@@ -40,6 +52,8 @@
                 <div class="card"><h3>Stok Raporu</h3><p>Mevcut stok durumu: %85 verimlilik.</p></div>
                 <div class="card"><h3>Atık Analizi</h3><p>Bu hafta atıklar %12 oranında azaldı.</p></div>
             `;
+        } else {
+            content.innerHTML = "<p style='text-align:center;'>Lütfen önce giriş yapın.</p>";
         }
     </script>
 </body>
