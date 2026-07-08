@@ -1,16 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoBite | Personel Denetim</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f4; padding: 20px; color: #2d3436; }
+        .panel { display: none; background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 20px; border: 2px solid #3d5e2f; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .student-info { background: #e8f5e9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #27ae60; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { padding: 15px; border: none; border-radius: 10px; cursor: pointer; color: white; font-weight: bold; flex: 1; transition: 0.3s; }
+        .btn-success { background: #27ae60; }
+        .btn-danger { background: #c0392b; }
+        .btn:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+<div id="adminPanel" class="panel">
+    <h2 style="color: #3d5e2f;">👤 Personel Denetim Paneli</h2>
+    
+    <div class="student-info">
+        <strong>Öğrenci Seçimleri:</strong>
+        <p id="data-display" style="font-size: 1.2em; font-weight: bold; margin-top: 10px;"></p>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-success" onclick="approve()">✅ Porsiyonu Onayla</button>
+        <button class="btn btn-danger" onclick="flag()">⚠️ İhlal Bildir</button>
+    </div>
+</div>
+
 <script>
     window.onload = function() {
+        // Personel Giriş Kapısı
         const username = prompt("Kullanıcı Adınızı Girin:");
         const password = prompt("Şifrenizi Girin:");
         
-        // Buraya istediğin kullanıcı adını ve şifreyi yazabilirsin
         if (username === "mutfak_muduru" && password === "admin123") {
             document.getElementById('adminPanel').style.display = 'block';
-            const selection = localStorage.getItem('menuSelection') || "Henüz seçim yapılmadı.";
+            
+            // Öğrencinin 'dashboard'da yaptığı seçimi çekiyoruz
+            const selection = localStorage.getItem('ogrenci_secimi') || "Henüz seçim yapılmadı.";
             document.getElementById('data-display').innerText = selection;
         } else {
             alert("Hatalı Giriş! Yetkiniz yok.");
             window.location.href = 'index.html';
         }
     };
+
+    function approve() {
+        alert("Başarılı! Öğrenci puanı güncellendi.");
+    }
+
+    function flag() {
+        alert("Uyarı! Öğrenciye ihlal cezası uygulandı.");
+    }
 </script>
+
+</body>
+</html>
