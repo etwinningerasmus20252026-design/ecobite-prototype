@@ -8,7 +8,8 @@ function login() {
     let pass = document.getElementById("passwordInput").value;
 
     if (users[id] && users[id].password === pass) {
-        alert("Giriş Başarılı!");
+        // Kullanıcı rolünü tarayıcı hafızasına alıyoruz
+        localStorage.setItem("userRole", users[id].role);
         window.location.href = "dashboard.html";
     } else {
         alert("Hatalı numara veya şifre!");
