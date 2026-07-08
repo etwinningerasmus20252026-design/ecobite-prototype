@@ -19,23 +19,23 @@
     <div id="menu-items">
         <div class="item-row">
             <span>🥣 Mercimek Çorbası <span class="allergen-tag">Gluten</span></span>
-            <input type="checkbox" checked>
+            <input type="checkbox" id="corba" checked>
         </div>
         <div class="item-row">
-            <span>🍗 Izgara Tavuk (Porsiyon Seç)</span>
-            <select id="tavuk-porsiyon">
+            <span>🍗 Izgara Tavuk</span>
+            <select id="tavuk">
                 <option value="Yok">İstemiyorum</option>
-                <option value="Yarım">Yarım</option>
-                <option value="Tam">Tam</option>
+                <option value="Yarım Porsiyon">Yarım</option>
+                <option value="Tam Porsiyon">Tam</option>
             </select>
         </div>
         <div class="item-row">
             <span>🍞 Ekmek <span class="allergen-tag">Gluten</span></span>
-            <input type="checkbox" checked>
+            <input type="checkbox" id="ekmek" checked>
         </div>
         <div class="item-row">
             <span>🍮 Sütlaç <span class="allergen-tag">Süt</span></span>
-            <input type="checkbox" checked>
+            <input type="checkbox" id="sutlac" checked>
         </div>
     </div>
 
@@ -49,12 +49,18 @@
 
 <script>
     function generateQR() {
-        // Seçimleri al ve kaydet
-        const tavuk = document.getElementById('tavuk-porsiyon').value;
-        localStorage.setItem('menuSelection', 'Tavuk: ' + tavuk);
+        // Tüm seçimleri topla
+        let secimler = [];
+        if(document.getElementById('corba').checked) secimler.push("Mercimek Çorbası");
+        secimler.push("Tavuk: " + document.getElementById('tavuk').value);
+        if(document.getElementById('ekmek').checked) secimler.push("Ekmek");
+        if(document.getElementById('sutlac').checked) secimler.push("Sütlaç");
+
+        // "ogrenci_secimi" anahtarıyla kaydet (personel paneliyle karışmaz)
+        localStorage.setItem('ogrenci_secimi', secimler.join(" | "));
         
         document.getElementById('qr-result').style.display = 'block';
-        alert("Seçimleriniz kaydedildi ve QR kodunuz oluşturuldu!");
+        alert("Seçimleriniz kaydedildi!");
     }
 </script>
 
