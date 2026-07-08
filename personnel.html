@@ -39,11 +39,12 @@
         if (username === "mutfak_muduru" && password === "admin123") {
             document.getElementById('adminPanel').style.display = 'block';
             
-            // Öğrencinin 'dashboard'da yaptığı seçimi çekiyoruz
-            const selection = localStorage.getItem('ogrenci_secimi') || "Henüz seçim yapılmadı.";
+            // dashboard.html'den gelen 'ogrenci_secimi' verisini çekiyoruz
+            const selection = localStorage.getItem('ogrenci_secimi') || "Öğrenci henüz seçim yapmadı.";
             document.getElementById('data-display').innerText = selection;
         } else {
             alert("Hatalı Giriş! Yetkiniz yok.");
+            // İstersen burayı kendi ana sayfa isminle değiştirebilirsin
             window.location.href = 'index.html';
         }
     };
