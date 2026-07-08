@@ -2,38 +2,36 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>EcoBite | Giriş</title>
+    <title>EcoBite | Sürdürülebilir Gelecek</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            background-color: #fcfbf7; 
-            display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; 
-        }
-        .login-card { 
-            background: #ffffff; padding: 40px; border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 350px;
-            border: 1px solid #d2b48c; 
-        }
-        h2 { color: #4A6741; text-align: center; margin-bottom: 25px; } 
-        input { 
-            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d2b48c; 
-            border-radius: 8px; box-sizing: border-box; outline-color: #4A6741;
-        }
-        button { 
-            width: 100%; padding: 12px; background: #4A6741; color: white; 
-            border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;
-            transition: background 0.3s;
-        }
-        button:hover { background: #3a5434; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fcfbf7; margin: 0; color: #3d3122; }
+        .hero { background: #4A6741; color: white; padding: 60px 20px; text-align: center; } /* Daha derin yeşil */
+        .stats { display: flex; justify-content: center; gap: 40px; padding: 30px; background: #e5d3b3; } /* Daha belirgin kahve */
+        .login-section { max-width: 400px; margin: 40px auto; padding: 30px; background: white; border: 2px solid #4A6741; border-radius: 20px; }
+        h2 { color: #4A6741; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #8A9A5B; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #4A6741; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #354d2e; }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <h2>EcoBite Giriş</h2>
+    <div class="hero">
+        <h1>EcoBite</h1>
+        <p>Gıda israfına karşı teknolojik ve sürdürülebilir çözümler.</p>
+    </div>
+
+    <div class="stats">
+        <div><strong>1.200+</strong><br>Kurtarılan Yemek</div>
+        <div><strong>450+</strong><br>Aktif Katılımcı</div>
+    </div>
+
+    <div class="login-section">
+        <h2>Panele Giriş</h2>
         <input type="text" id="idInput" placeholder="Kullanıcı No">
         <input type="password" id="passwordInput" placeholder="Şifre">
         <button onclick="login()">Giriş Yap</button>
     </div>
+
     <script src="assets/js/auth.js"></script>
 </body>
 </html>
