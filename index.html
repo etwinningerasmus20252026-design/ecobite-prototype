@@ -4,65 +4,125 @@
     <meta charset="UTF-8">
     <title>EcoBite | Sürdürülebilir Gelecek</title>
     <style>
-        /* Organik Yaprak Dokusu */
+        /* GERÇEK YAPRAK SİLÜETLİ ARKA PLAN DOKUSU */
         body { 
-            font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; color: #2d3436; 
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%235a8e45" fill-opacity="0.04" d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm10-45c0 5.5-4.5 10-10 10s-10-4.5-10-10 4.5-10 10-10 10 4.5 10 10zm-20 0c0 5.5-4.5 10-10 10s-10-4.5-10-10 4.5-10 10-10 10 4.5 10 10z"/></svg>');
-            background-size: 80px;
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #fffdf5; 
+            margin: 0; 
+            color: #2d3436; 
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100"><path d="M25,50 C15,40 10,25 25,10 C40,25 35,40 25,50 Z M75,50 C65,40 60,25 75,10 C90,25 85,40 75,50 Z M50,85 C40,75 35,60 50,45 C65,60 60,75 50,85 Z" fill="%235a8e45" fill-opacity="0.06"/></svg>');
+            background-size: 120px 120px;
         }
         
-        /* Modernize Edilmiş Hero Alanı */
+        /* Derinliği Olan Canlı Yeşil Başlık Alanı */
         .hero { 
-            background: linear-gradient(135deg, #4A6741 0%, #5a8e45 100%); 
-            color: white; padding: 70px 20px; text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            border-bottom: 3px solid #f1c40f;
+            background: linear-gradient(135deg, #3d5e2f 0%, #5a8e45 100%); 
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 5px solid #f1c40f;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h1 { font-size: 3em; margin: 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         
-        /* İstatistik Kartları */
-        .stats-container { display: flex; justify-content: center; gap: 20px; padding: 40px 20px; }
+        /* Başlık içi şık bir yaprak çizgisi efekti */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -10px; left: 50%;
+            transform: translateX(-50%);
+            width: 100px; height: 20px;
+            background: #f1c40f;
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(10px);
+        }
+
+        .hero h1 { font-size: 3.5em; margin: 0; letter-spacing: 3px; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); }
+        .hero p { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
+        
+        /* Modern ve Gölgeli İstatistik Kartları */
+        .stats-container { display: flex; justify-content: center; gap: 25px; padding: 50px 20px; }
         .stat-card { 
-            background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; 
-            text-align: center; width: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: white; 
+            padding: 25px; 
+            border-radius: 18px; 
+            border-top: 5px solid #f1c40f; 
+            text-align: center; 
+            width: 180px; 
+            box-shadow: 0 10px 25px rgba(90,142,69,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .stat-card:hover { transform: translateY(-10px); }
+        .stat-card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 15px 35px rgba(90,142,69,0.2);
+            border-top: 5px solid #5a8e45;
+        }
+        .stat-card strong { font-size: 1.8em; color: #3d5e2f; display: block; margin-bottom: 5px; }
         
+        /* Bilgi Akış Kutusu */
         .tip-box { 
-            max-width: 600px; margin: 0 auto 30px auto; padding: 20px; background: #e8f5e9; 
-            border-left: 5px solid #5a8e45; border-radius: 8px; font-style: italic; text-align: center;
+            max-width: 650px; margin: 0 auto 40px auto; padding: 20px 30px; background: #e8f5e9; 
+            border-left: 6px solid #5a8e45; border-radius: 12px; font-style: italic; 
+            text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            font-size: 1.05em; color: #2e4a24;
         }
         
-        .login-section { max-width: 400px; margin: 0 auto 50px auto; padding: 30px; background: white; 
-                         border: 3px solid #5a8e45; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* Buzlu Cam Efektli (Glassmorphic) Giriş Paneli */
+        .login-section { 
+            max-width: 380px; margin: 0 auto 60px auto; padding: 40px; 
+            background: rgba(255, 255, 255, 0.95); 
+            border: 2px solid #5a8e45; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+        }
         
-        .links-section { text-align: center; margin-bottom: 50px; }
-        .links-section a { margin: 0 15px; color: #5a8e45; font-weight: bold; text-decoration: none; font-size: 1.1em; transition: 0.3s; }
-        .links-section a:hover { color: #f1c40f; }
+        h2 { color: #3d5e2f; text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 1.8em; }
         
-        h2 { color: #5a8e45; text-align: center; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #f1c40f; border-radius: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #5a8e45; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #456b35; transform: scale(1.02); }
+        input { 
+            width: 100%; padding: 14px; margin: 12px 0; 
+            border: 2px solid #e2e8f0; border-radius: 10px; 
+            box-sizing: border-box; font-size: 1em; outline: none;
+            transition: all 0.3s;
+        }
+        input:focus { border-color: #5a8e45; box-shadow: 0 0 0 3px rgba(90,142,69,0.2); }
+        
+        button { 
+            width: 100%; padding: 14px; background: #5a8e45; color: white; 
+            border: none; border-radius: 10px; font-weight: bold; font-size: 1.1em;
+            cursor: pointer; transition: all 0.3s; margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(90,142,69,0.3);
+        }
+        button:hover { background: #3d5e2f; transform: scale(1.02); box-shadow: 0 8px 20px rgba(90,142,69,0.4); }
+        
+        /* Alt Bağlantılar */
+        .links-section { text-align: center; margin-bottom: 60px; background: rgba(241,196,15,0.1); padding: 20px; border-radius: 15px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .links-section p { margin-top: 0; font-weight: bold; color: #3d5e2f; }
+        .links-section a { margin: 0 15px; color: #5a8e45; font-weight: bold; text-decoration: none; font-size: 1.1em; transition: all 0.3s; }
+        .links-section a:hover { color: #f1c40f; text-decoration: underline; }
     </style>
 </head>
 <body>
+
     <div class="hero">
         <h1>EcoBite</h1>
         <p>Gıda israfını teknolojiyle durduruyoruz, geleceği birlikte tasarlıyoruz.</p>
     </div>
 
+    <!-- Güçlendirilmiş İstatistik Kartları -->
     <div class="stats-container">
-        <div class="stat-card"><strong>1.200+</strong><br>Kurtarılan Yemek</div>
-        <div class="stat-card"><strong>450+</strong><br>Aktif Katılımcı</div>
-        <div class="stat-card"><strong>20+</strong><br>İş Birliği</div>
+        <div class="stat-card"><strong>1.200+</strong>Kurtarılan Yemek</div>
+        <div class="stat-card"><strong>450+</strong>Aktif Katılımcı</div>
+        <div class="stat-card"><strong>20+</strong>İş Birliği</div>
     </div>
 
-    <div class="tip-box">
-        <strong>Eco-Vizyon:</strong> Sürdürülebilir atık yönetimi üzerine AR-GE çalışmalarımız hızla devam ediyor. Atık değil, değer üretiyoruz!
+    <!-- Rastgele Değişebilecek Değişken Vizyon/İpucu Kutusu -->
+    <div class="tip-box" id="dynamicTip">
+        <strong>Eco-Vizyon:</strong> Sürdürülebilir atık yönetimi ve döngüsel ekonomi üzerine AR-GE vizyonumuzla, atıkları değer zincirine geri kazandırıyoruz!
     </div>
 
+    <!-- Şık Giriş Paneli -->
     <div class="login-section">
         <h2>Panele Giriş</h2>
         <input type="text" id="idInput" placeholder="Kullanıcı No">
@@ -70,6 +130,7 @@
         <button onclick="login()">Giriş Yap</button>
     </div>
 
+    <!-- Sosyal Linkler Grubu -->
     <div class="links-section">
         <p>Topluluğumuza Katıl:</p>
         <a href="https://www.greenforyouth.org/" target="_blank">Green For Youth</a>
@@ -77,5 +138,15 @@
     </div>
 
     <script src="assets/js/auth.js"></script>
+    <script>
+        // Sayfa her yüklendiğinde farklı genel sürdürülebilirlik bilgileri gösteren küçük dinamik kod
+        const tips = [
+            "<strong>Eco-Vizyon:</strong> Sürdürülebilir atık yönetimi ve döngüsel ekonomi üzerine AR-GE vizyonumuzla, atıkları değer zincirine geri kazandırıyoruz!",
+            "<strong>Biliyor muydunuz?</strong> Dünya genelinde üretilen gıdaların yaklaşık üçte biri israf ediliyor. EcoBite bu oranı minimize etmeyi hedefler.",
+            "<strong>Gelecek İçin:</strong> Akıllı veri analizleri ve doğru stok yönetimi ile karbon ayak izimizi her gün biraz daha azaltıyoruz."
+        ];
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        document.getElementById("dynamicTip").innerHTML = randomTip;
+    </script>
 </body>
 </html>
