@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <title>EcoBite | Panel</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        h1 { color: #27ae60; } /* EcoBite Yeşili */
-        .card { background: #e8f8f0; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 5px solid #27ae60; }
-        .btn-exit { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #e74c3c; color: white; text-decoration: none; border-radius: 5px; }
+        /* Modern ve Sürdürülebilir Tasarım */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f7f6; 
+            margin: 0; 
+            padding: 40px; 
+            display: flex;
+            justify-content: center;
+        }
+        .container { 
+            width: 100%;
+            max-width: 600px; 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        h1 { color: #27ae60; text-align: center; } 
+        p { color: #555; text-align: center; }
+        .card { 
+            background: #e8f8f0; 
+            padding: 25px; 
+            border-radius: 15px; 
+            margin: 30px 0; 
+            border-left: 8px solid #27ae60; 
+        }
+        .btn-exit { 
+            display: block; 
+            width: 100%;
+            padding: 15px; 
+            background: #e74c3c; 
+            color: white; 
+            text-align: center;
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-exit:hover { background: #c0392b; }
     </style>
 </head>
 <body>
@@ -18,7 +52,7 @@
         
         <div class="card">
             <h3>Güncel Durum</h3>
-            <p>Bugün sisteme katkılarınızdan dolayı teşekkür ederiz.</p>
+            <p>Bugün sisteme katkılarınızdan dolayı teşekkür ederiz. Veri akışınız aktif.</p>
         </div>
 
         <a href="index.html" class="btn-exit">Çıkış Yap</a>
