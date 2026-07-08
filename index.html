@@ -5,22 +5,27 @@
     <title>EcoBite | Panel</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; color: #2d3436; }
-        .hero { background: linear-gradient(150deg, #3d5e2f 0%, #5a8e45 100%); color: white; padding: 50px 20px; text-align: center; }
+        .hero { background: linear-gradient(150deg, #3d5e2f 0%, #5a8e45 100%); color: white; padding: 40px 20px; text-align: center; }
         
         .main-wrapper { max-width: 900px; margin: 20px auto; padding: 20px; }
-        
-        /* Yemek Tercih Saatleri (Yeni Bilgi Kutuları) */
-        .meal-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .meal-card { background: #fff; padding: 20px; border-radius: 15px; border: 2px solid #f1c40f; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .meal-card h3 { color: #5a8e45; margin-top: 0; }
 
-        /* Hareketli İstatistikler */
-        .stats-container { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        /* Giriş Paneli ve Yemek Saatlerini Yan Yana Getirdik */
+        .top-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+        
+        .login-section { background: #fff; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .login-section input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .login-section button { width: 100%; padding: 12px; background: #5a8e45; color: white; border: none; border-radius: 8px; cursor: pointer; }
+
+        .meal-info { display: flex; flex-direction: column; gap: 20px; }
+        .meal-card { background: #fff; padding: 20px; border-radius: 15px; border: 2px solid #f1c40f; text-align: center; }
+        .meal-card h3 { color: #5a8e45; margin: 0; }
+
+        .stats-container { display: flex; justify-content: center; gap: 20px; margin-top: 40px; }
         .stat-card { 
             background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; 
             width: 180px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .stat-card:hover { transform: translateY(-10px); background: #f9fdf9; }
+        .stat-card:hover { transform: translateY(-10px); }
     </style>
 </head>
 <body>
@@ -30,22 +35,31 @@
     </div>
 
     <div class="main-wrapper">
-        <!-- Yemek Saatleri -->
-        <div class="meal-info-grid">
-            <div class="meal-card">
-                <h3>🍽️ Akşam Yemeği</h3>
-                <p>Belirtme Saati: <b>12.00 - 14.00</b></p>
+        <div class="top-section">
+            <!-- Giriş Paneli geri geldi! -->
+            <div class="login-section">
+                <h2>Panele Giriş</h2>
+                <input type="text" placeholder="Kullanıcı No">
+                <input type="password" placeholder="Şifre">
+                <button>Giriş Yap</button>
             </div>
-            <div class="meal-card">
-                <h3>☀️ Sabah Kahvaltısı</h3>
-                <p>Belirtme Saati: <b>20.00 - 22.00</b></p>
+
+            <!-- Yemek Saatleri yan tarafta -->
+            <div class="meal-info">
+                <div class="meal-card">
+                    <h3>🍽️ Akşam Yemeği</h3>
+                    <p>Belirtme: <b>12.00 - 14.00</b></p>
+                </div>
+                <div class="meal-card">
+                    <h3>☀️ Sabah Kahvaltısı</h3>
+                    <p>Belirtme: <b>20.00 - 22.00</b></p>
+                </div>
             </div>
         </div>
 
-        <!-- Hareketli İstatistikler -->
         <div class="stats-container">
             <div class="stat-card"><strong>1.200+</strong><br>Kurtarılan Yemek</div>
-            <div class="stat-card"><strong>450+</strong><br>Aktif Katılımcı</div>
+            <div class="stat-card"><strong>450+</strong><br>Katılımcı</div>
             <div class="stat-card"><strong>20+</strong><br>İş Birliği</div>
         </div>
     </div>
