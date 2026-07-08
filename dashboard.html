@@ -2,55 +2,59 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>EcoBite | Öğrenci Paneli</title>
+    <title>EcoBite | Detaylı Seçim</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; padding: 20px; color: #2d3436; }
-        .card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
-        .menu-list { list-style: none; padding: 0; text-align: left; }
-        .menu-list li { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .allergen-tag { background: #f1c40f; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
-        .btn { padding: 15px 25px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; margin: 10px 5px; width: 45%; }
-        .btn-half { background: #a8d5a2; color: #2d3436; }
-        .btn-full { background: #5a8e45; color: white; }
-        #qr-placeholder { margin-top: 20px; padding: 20px; border: 2px dashed #5a8e45; display: none; background: #f9fff9; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; padding: 20px; color: #2d3436; }
+        .card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; }
+        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .allergen-tag { background: #f1c40f; padding: 2px 5px; border-radius: 4px; font-size: 0.7em; margin-left: 5px; }
+        .btn-confirm { width: 100%; padding: 15px; background: #5a8e45; color: white; border: none; border-radius: 10px; cursor: pointer; margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h2 style="color: #3d5e2f;">🥗 Bugünün Menüsü</h2>
-    <ul class="menu-list">
-        <li>🥣 Mercimek Çorbası <span class="allergen-tag">Gluten</span></li>
-        <li>🍗 Izgara Tavuk</li>
-        <li>🍞 Ekmek</li>
-        <li>🍮 Sütlaç <span class="allergen-tag">Süt Ürünü</span></li>
-    </ul>
-
-    <div style="margin-top: 15px; font-size: 0.85em; color: #d35400; font-weight: bold;">
-        ⚠️ Rezervasyonsuz katılımlar "Esneklik Payı" kapsamındadır.
+    <h2 style="color: #3d5e2f;">🥗 Bugünün Menüsü (Özelleştir)</h2>
+    
+    <div id="menu-items">
+        <div class="item-row">
+            <span>🥣 Mercimek Çorbası <span class="allergen-tag">Gluten</span></span>
+            <input type="checkbox" checked>
+        </div>
+        <div class="item-row">
+            <span>🍗 Izgara Tavuk (Porsiyon Seç)</span>
+            <select id="tavuk-porsiyon">
+                <option value="Yok">İstemiyorum</option>
+                <option value="Yarım">Yarım</option>
+                <option value="Tam">Tam</option>
+            </select>
+        </div>
+        <div class="item-row">
+            <span>🍞 Ekmek <span class="allergen-tag">Gluten</span></span>
+            <input type="checkbox" checked>
+        </div>
+        <div class="item-row">
+            <span>🍮 Sütlaç <span class="allergen-tag">Süt</span></span>
+            <input type="checkbox" checked>
+        </div>
     </div>
 
-    <div style="margin-top: 20px;">
-        <p>Lütfen porsiyon tercihinizi yapın:</p>
-        <button class="btn btn-half" onclick="selectPortion('Yarım')">Yarım Porsiyon</button>
-        <button class="btn btn-full" onclick="selectPortion('Tam')">Tam Porsiyon</button>
-    </div>
-
-    <div id="qr-placeholder">
-        <h3 id="status-text">Seçiminiz Alındı!</h3>
-        <div style="background:#eee; padding:20px; display:inline-block; font-family: monospace; font-size: 1.2em;">QR: EB-2026-X99</div>
-        <p><small>Yemekhanede personele gösterin.</small></p>
+    <button class="btn-confirm" onclick="generateQR()">QR Kodumu Oluştur</button>
+    
+    <div id="qr-result" style="display:none; text-align:center; margin-top:20px; border:2px dashed #5a8e45; padding:15px;">
+        <h3>QR Kodunuz Hazır!</h3>
+        <p style="font-family:monospace; font-size: 1.5em; color: #5a8e45;">EB-2026-X99</p>
     </div>
 </div>
 
 <script>
-    function selectPortion(type) {
-        // Yerel hafızaya kayıt (Sunum esnasında veri kaybı olmaz)
-        localStorage.setItem('selectedPortion', type);
+    function generateQR() {
+        // Seçimleri al ve kaydet
+        const tavuk = document.getElementById('tavuk-porsiyon').value;
+        localStorage.setItem('menuSelection', 'Tavuk: ' + tavuk);
         
-        // Arayüzü güncelle
-        document.getElementById('qr-placeholder').style.display = 'block';
-        document.getElementById('status-text').innerText = type + " Porsiyon Seçildi!";
+        document.getElementById('qr-result').style.display = 'block';
+        alert("Seçimleriniz kaydedildi ve QR kodunuz oluşturuldu!");
     }
 </script>
 
