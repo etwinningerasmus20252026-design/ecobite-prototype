@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>EcoBite | Giriş</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #fcfbf7; /* Hafif bir beyaz/krem tonu */
+            display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; 
+        }
+        .login-card { 
+            background: #ffffff; padding: 40px; border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); width: 350px;
+            border: 1px solid #e0dcd5; /* Açık kahverengi dokunuşu */
+        }
+        h2 { color: #8A9A5B; text-align: center; } /* Adaçayı Yeşili */
+        input { 
+            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d2b48c; /* Açık Kahverengi */
+            border-radius: 8px; box-sizing: border-box;
+        }
+        button { 
+            width: 100%; padding: 12px; background: #8A9A5B; color: white; 
+            border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>EcoBite Giriş Ekranı</h1>
-    <input type="text" id="idInput" placeholder="Öğrenci/Personel No">
-    <input type="password" id="passwordInput" placeholder="Şifre">
-    <button onclick="login()">Giriş Yap</button>
-
+    <div class="login-card">
+        <h2>EcoBite Giriş</h2>
+        <input type="text" id="idInput" placeholder="Kullanıcı No">
+        <input type="password" id="passwordInput" placeholder="Şifre">
+        <button onclick="login()">Giriş Yap</button>
+    </div>
     <script src="assets/js/auth.js"></script>
 </body>
 </html>
