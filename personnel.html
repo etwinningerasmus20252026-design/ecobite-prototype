@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoBite | Personel Denetim</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f4; padding: 20px; color: #2d3436; }
+        .panel { background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 20px; border: 2px solid #3d5e2f; }
+        .student-info { background: #e8f5e9; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { padding: 15px; border: none; border-radius: 10px; cursor: pointer; color: white; font-weight: bold; flex: 1; }
+        .btn-success { background: #27ae60; }
+        .btn-danger { background: #c0392b; }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h2 style="color: #3d5e2f;">👤 Personel Onay Paneli</h2>
+    
+    <div class="student-info">
+        <h3>Öğrenci: Ahmet Yılmaz</h3>
+        <p><strong>Seçimleri:</strong></p>
+        <ul id="student-selection-list">
+            <li>Yükleniyor...</li>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-success" onclick="approve()">✅ Porsiyonu Onayla</button>
+        <button class="btn btn-danger" onclick="flag()">⚠️ İhlal Bildir</button>
+    </div>
+</div>
+
+<script>
+    // LocalStorage'dan öğrencinin seçimlerini çek
+    const selection = localStorage.getItem('menuSelection') || "Seçim bulunamadı";
+    const list = document.getElementById('student-selection-list');
+    list.innerHTML = `<li>${selection}</li>`;
+
+    function approve() {
+        alert("Porsiyon onaylandı. Öğrenci puan kazandı!");
+        // Burada veritabanına "Başarılı İşlem" logu düşülecek
+    }
+
+    function flag() {
+        alert("İhlal bildirimi alındı. Öğrenciye ceza puanı uygulandı.");
+        // Burada veritabanına "İhlal" logu düşülecek
+    }
+</script>
+
+</body>
+</html>
