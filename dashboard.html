@@ -2,59 +2,57 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>EcoBite | Panel</title>
+    <title>EcoBite | Öğrenci Paneli</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; padding: 40px; color: #2d3436; }
-        .container { max-width: 800px; margin: auto; }
-        
-        h1 { color: #5a8e45; text-align: center; margin-bottom: 30px; }
-        
-        /* Kartlar: Yeşil ve Sarı Uyumu */
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { 
-            background: white; padding: 25px; border-radius: 15px; 
-            border-top: 6px solid #f1c40f; /* Sarı vurgu */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-        }
-        .card h3 { color: #5a8e45; margin-top: 0; }
-        
-        /* Çıkış Butonu */
-        .btn-exit { 
-            display: block; width: 200px; margin: 40px auto; padding: 15px; 
-            background: #5a8e45; color: white; text-align: center; 
-            text-decoration: none; border-radius: 10px; font-weight: bold; 
-            transition: background 0.3s;
-        }
-        .btn-exit:hover { background: #456b35; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; padding: 20px; color: #2d3436; }
+        .card { background: white; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 20px; border: 2px solid #5a8e45; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
+        .menu-list { list-style: none; padding: 0; text-align: left; }
+        .menu-list li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .allergen-tag { background: #f1c40f; padding: 2px 6px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
+        .btn { padding: 15px 25px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; margin: 10px 5px; width: 45%; }
+        .btn-half { background: #a8d5a2; color: #2d3436; }
+        .btn-full { background: #5a8e45; color: white; }
+        #qr-placeholder { margin-top: 20px; padding: 20px; border: 2px dashed #5a8e45; display: none; background: #f9fff9; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>EcoBite Yönetim Paneli</h1>
-        
-        <div id="roleContent" class="stats-grid">
-            </div>
-        
-        <a href="index.html" class="btn-exit" onclick="localStorage.clear()">Çıkış Yap</a>
+
+<div class="card">
+    <h2 style="color: #3d5e2f;">🥗 Bugünün Menüsü</h2>
+    <ul class="menu-list">
+        <li>🥣 Mercimek Çorbası <span class="allergen-tag">Gluten</span></li>
+        <li>🍗 Izgara Tavuk</li>
+        <li>🍞 Ekmek</li>
+        <li>🍮 Sütlaç <span class="allergen-tag">Süt Ürünü</span></li>
+    </ul>
+
+    <div style="margin-top: 15px; font-size: 0.85em; color: #d35400; font-weight: bold;">
+        ⚠️ Rezervasyonsuz katılımlar "Esneklik Payı" kapsamındadır.
     </div>
 
-    <script>
-        const role = localStorage.getItem("userRole");
-        const content = document.getElementById("roleContent");
+    <div style="margin-top: 20px;">
+        <p>Lütfen porsiyon tercihinizi yapın:</p>
+        <button class="btn btn-half" onclick="selectPortion('Yarım')">Yarım Porsiyon</button>
+        <button class="btn btn-full" onclick="selectPortion('Tam')">Tam Porsiyon</button>
+    </div>
 
-        if (role === "student") {
-            content.innerHTML = `
-                <div class="card"><h3>İsrafı Önleme</h3><p>Bugün 3 porsiyon gıdayı kurtardın. Harikasın!</p></div>
-                <div class="card"><h3>Puan Durumu</h3><p>Toplam Eco-Puanın: 145</p></div>
-            `;
-        } else if (role === "staff") {
-            content.innerHTML = `
-                <div class="card"><h3>Stok Raporu</h3><p>Mevcut stok durumu: %85 verimlilik.</p></div>
-                <div class="card"><h3>Atık Analizi</h3><p>Bu hafta atıklar %12 oranında azaldı.</p></div>
-            `;
-        } else {
-            content.innerHTML = "<p style='text-align:center;'>Lütfen önce giriş yapın.</p>";
-        }
-    </script>
+    <div id="qr-placeholder">
+        <h3 id="status-text">Seçiminiz Alındı!</h3>
+        <div style="background:#eee; padding:20px; display:inline-block; font-family: monospace; font-size: 1.2em;">QR: EB-2026-X99</div>
+        <p><small>Yemekhanede personele gösterin.</small></p>
+    </div>
+</div>
+
+<script>
+    function selectPortion(type) {
+        // Yerel hafızaya kayıt (Sunum esnasında veri kaybı olmaz)
+        localStorage.setItem('selectedPortion', type);
+        
+        // Arayüzü güncelle
+        document.getElementById('qr-placeholder').style.display = 'block';
+        document.getElementById('status-text').innerText = type + " Porsiyon Seçildi!";
+    }
+</script>
+
 </body>
 </html>
