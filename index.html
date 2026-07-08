@@ -4,45 +4,56 @@
     <meta charset="UTF-8">
     <title>EcoBite | Sürdürülebilir Gelecek</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; color: #2d3436; 
-               background-image: radial-gradient(#dcdcdc 0.5px, transparent 0.5px); background-size: 20px 20px; } /* Hafif desen */
+        body { 
+            font-family: 'Segoe UI', sans-serif; background-color: #fffdf5; margin: 0; color: #2d3436; 
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%235a8e45" fill-opacity="0.05" d="M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 180c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/></svg>');
+            background-size: 100px;
+        }
         
         .hero { background: #5a8e45; color: white; padding: 60px 20px; text-align: center; }
         
-        /* İstatistik Kartları */
+        /* İstatistik Kartları (Hafif hareketli) */
         .stats-container { display: flex; justify-content: center; gap: 20px; padding: 40px 20px; }
-        .stat-card { background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; 
-                     text-align: center; width: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .stat-card { 
+            background: white; padding: 20px; border-radius: 15px; border-bottom: 5px solid #f1c40f; 
+            text-align: center; width: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-10px); }
         
-        /* Eco-İpucu */
-        .tip-box { max-width: 600px; margin: 0 auto 30px auto; padding: 20px; background: #e8f5e9; 
-                   border-left: 5px solid #5a8e45; border-radius: 8px; font-style: italic; }
+        /* Eco-İpucu (Güncellendi) */
+        .tip-box { 
+            max-width: 600px; margin: 0 auto 30px auto; padding: 20px; background: #e8f5e9; 
+            border-left: 5px solid #5a8e45; border-radius: 8px; font-style: italic; text-align: center;
+        }
         
         .login-section { max-width: 400px; margin: 0 auto 50px auto; padding: 30px; background: white; 
                          border: 3px solid #5a8e45; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
         .links-section { text-align: center; margin-bottom: 50px; }
-        .links-section a { margin: 0 15px; color: #5a8e45; font-weight: bold; text-decoration: none; }
+        .links-section a { margin: 0 15px; color: #5a8e45; font-weight: bold; text-decoration: none; font-size: 1.1em; transition: color 0.3s; }
+        .links-section a:hover { color: #f1c40f; }
         
-        h2 { color: #5a8e45; }
+        h2 { color: #5a8e45; text-align: center; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid #f1c40f; border-radius: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #5a8e45; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        button { width: 100%; padding: 12px; background: #5a8e45; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #456b35; transform: scale(1.02); }
     </style>
 </head>
 <body>
     <div class="hero">
         <h1>EcoBite</h1>
-        <p>Gıda israfına karşı teknolojik ve sürdürülebilir çözümler.</p>
+        <p>Gıda israfını teknolojiyle durduruyoruz, geleceği birlikte tasarlıyoruz.</p>
     </div>
 
     <div class="stats-container">
         <div class="stat-card"><strong>1.200+</strong><br>Kurtarılan Yemek</div>
         <div class="stat-card"><strong>450+</strong><br>Aktif Katılımcı</div>
-        <div class="stat-card"><strong>30%</strong><br>Atık Azaltımı</div>
+        <div class="stat-card"><strong>20+</strong><br>İş Birliği</div>
     </div>
 
     <div class="tip-box">
-        <strong>Günün Eco-İpucu:</strong> Pistachio kabukları ile yapılan biyokompozitler, plastik atığını %30'a kadar azaltabilir. Projelerimizi keşfet!
+        <strong>Eco-Vizyon:</strong> Sürdürülebilir atık yönetimi üzerine AR-GE çalışmalarımız hızla devam ediyor. Atık değil, değer üretiyoruz!
     </div>
 
     <div class="login-section">
@@ -54,9 +65,8 @@
 
     <div class="links-section">
         <p>Topluluğumuza Katıl:</p>
-        <a href="https://youthgreen.com" target="_blank">YouthGreen</a>
-        <a href="https://greencampus.com" target="_blank">Green Campus</a>
-        <a href="https://segm.org" target="_blank">SEGM</a>
+        <a href="https://www.greenforyouth.org/" target="_blank">Green For Youth</a>
+        <a href="https://segm.org.tr/" target="_blank">SEGM</a>
     </div>
 
     <script src="assets/js/auth.js"></script>
